@@ -1,18 +1,19 @@
-from flask import Flask,request
+from flask import Flask,request, jsonify
 
 app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return '<i><b>hello uncle</b>This is homepage</i>'
+    return '<i><b>hello uncle</b> This is homepage</i>'
 
 @app.route('/user_login', methods = ['POST', 'GET'])
 def my_login():
     if request.method == 'POST':
-        return f'<i>You said: <b> POST </b> </i>'
+        my_client_data = request.get_json()
+        return jsonify({'status': 'Mission Successful', 'got this:' : my_client_data, 'request': 'POST'})
         
     elif request.method == 'GET':
-        return f'<i>You said: <b> GET </b> </i>'
+        return jsonify({'status': 'Mission Successful', 'take this:' : "|PEACE AND LOVE|", 'request': 'GET'})
 
 
 @app.route('/<usr>')
