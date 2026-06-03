@@ -2,9 +2,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/homa')
+@app.route("/")
 def homepage():
-    return '<i><b>hello uncle</b></i>'
+    return '<i><b>hello uncle</b>This is homepage</i>'
 
 @app.route('/products')
 def my_products():
