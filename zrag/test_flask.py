@@ -16,6 +16,8 @@ try:
 #data['data']['object']['thread_id']
         elif request.method == 'POST':
             global data
+
+            
             global clean_text
             data = request.get_json()
             grant_id = data.get('data', {}).get('object', {}).get('grant_id')
